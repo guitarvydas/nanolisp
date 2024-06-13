@@ -1,0 +1,59 @@
+package simplelisp
+
+import "core:fmt"
+import "core:strings"
+
+
+
+Set :: proc (p : Ptr, v : Ptr) { mem [p + nil] = v }
+Get :: proc (p : Ptr) -> Cell { return mem [p + nil] }
+Car :: proc (p : Ptr) -> Ptr { return Get (p).car }
+Cdr :: proc (p : Ptr) -> Ptr { return Get (p).cdr }
+List :: proc (p : Ptr) -> bool { return p >= nil }
+Atom :: proc (p : Ptr) -> bool { return p < nil }
+Null :: proc (p : Ptr) -> bool { return p == nil }
+
+// nil, t, eq, car, cdr, atom, cond, cons, quote
+t := nil - 1
+eq := t - 1
+car := eq - 1
+cdr := car - 1
+atom := cdr - 1
+cond := atom - 2
+cons := cond - 2
+quote := cons - 2
+
+mem := [MemMax]Cell{
+    Cell{[]{'n', 'i', 'l', nr}, nil},
+    Cell{[]{'t',  nr,  nr, nr}, nil},
+    Cell{[]{'e', 'q',  nr, nr}, nil},
+    Cell{[]{'c', 'a', 'r', nr}, nil},
+    Cell{[]{'c', 'd', 'r', nr}, nil},
+    Cell{[]{'a', 't', 'o', 'm'}, atom-1}, Cell{[]{nr, nr, nr, nr}, nil},
+    Cell{[]{'c', 'o', 'n', 's'}, cons-1}, Cell{[]{nr, nr, nr, nr}, nil},
+    Cell{[]{'c', 'o', 'n', 'd'}, cond-1}, Cell{[]{nr, nr, nr, nr}, nil},
+    Cell{[]{'q', 'u', 'o', 't'}, quote-1}, Cell{[]{'e', nr, nr, nr}, nil},
+}
+
+nextAtom := quote - 2
+nextList := 1
+
+AllocAtom :: proc () -> Ptr { 
+    fmt.assert (nextAtom > 0, "out of (atom) memory\n")
+    r := nextAtom
+    nextAtom = nextAtom - 1
+    return r
+}
+
+AllocList :: proc () -> Ptr { 
+    fmt.assert (nextList < len (mem) - nil, "out of (list) memory\n")
+    r := nextList
+    nextList = nextList + 1
+    return r
+}
+
+Cons :: proc -> Ptr {
+    p := AllocList ()
+    return p
+}
+

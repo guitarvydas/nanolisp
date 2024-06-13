@@ -1,0 +1,11 @@
+keywords {
+  input = item+
+  item = comment | keyword | any
+
+  keyword = 
+    | "for" space+ -- for
+
+  comment = "⌈" notcomment* "⌉"
+  notcomment = ~"⌈" ~"⌉" any
+  terminator = ~alnum any
+}

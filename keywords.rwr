@@ -1,0 +1,8 @@
+keywords {
+  input [items+] = ‛«items»’
+  item [x] = ‛«x»’
+  keyword_for [_for ws+] = ‛❲for❳’
+  comment [_lb cs* _rb] = ‛«_lb»«cs»«_rb»’
+  notcomment [c] = ‛«c»’
+  terminator [c] = ‛«c»’
+}

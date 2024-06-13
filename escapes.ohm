@@ -1,0 +1,19 @@
+Escapes {
+  text = char+
+  char =
+    | dq (~dq stringchar)* dq -- string
+    | ";" (~nl stringchar)* nl -- comment
+    | "❲" wordchar+ "❳" -- word
+    | ~"❲" ~"❳" any -- any
+
+  stringchar = " " | nl | "\t" | "<" | ">" | "&" | quoteddq | sq | dq | any 
+
+  wordchar =
+    | "❲" wordchar+ "❳" -- rec
+    | ~"❲" ~"❳" any -- bottom
+    
+  quoteddq = "\\" dq
+  sq = "'"
+  dq = "\""
+  nl = "\n"
+}

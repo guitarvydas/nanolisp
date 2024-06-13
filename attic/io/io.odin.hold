@@ -1,0 +1,116 @@
+package simplelisp
+
+import "core:fmt"
+import "core:strings"
+import uni "core:unicode/utf8"
+
+/* //////// */
+
+/* input := "a" */
+/* input_index : int */
+
+/* open :: proc () { */
+/*     input_index = 0 */
+/* } */
+
+/* close :: proc () { */
+/* } */
+
+/* getr :: proc () -> rune { */
+/*     r := input.at (input_index) */
+/*     input_index += 1 */
+/*     return r */
+/* } */
+
+/* put_back :: proc (r : rune) { */
+/*     input_index -= 1 */
+/*     fmt.assertf (r == input.at (input_index), "FATAL in put_back") */
+/* } */
+
+/* /// */
+
+/* Read :: proc () -> Ptr { */
+/*     c := getch () */
+/*     for is_whitespace (c) { */
+/* 	c := getch () */
+/*     } */
+/*     if c == '(' { */
+/* 	return ReadList (c); */
+/*     } else { */
+/* 	return ReadAtom (c); */
+/*     } */
+/* } */
+
+/* getch :: proc () -> rune { */
+/*     fmt.assertf (false, "NIY") */
+/* } */
+
+/* put_back :: proc (c : run) { */
+/*     fmt.assertf (false, "NIY") */
+/* } */
+
+/* is_whitespace :: proc (c : rune) -> bool { */
+/*     if c == ' ' || c == '\n' || c == '\t' { */
+/* 	return true */
+/*     } else { */
+/* 	return false */
+/*     } */
+/* } */
+
+/* is_terminator :: proc (c : rune) -> bool { */
+/*     if is_whitespace (c) { */
+/* 	return true */
+/*     } else if c == '(' || c == ')' || c == EOFrune { */
+/* 	return true */
+/*     } else { */
+/* 	return false */
+/*     } */
+/* } */
+
+    
+/* ReadAtom :: proc (c : rune) -> Ptr { */
+/*     save_rune :: proc (c : rune, buffer : ^[dynamic]rune, ix : ^int) { */
+/* 	buffer [ix] = c */
+/* 	ix += 1 */
+/*     } */
+/*     buffer := [dynamic]rune */
+/*     ix := 0 */
+/*     save_rune (c, &buffer, &ix) */
+/*     for c = getch () ; !is_terminator (c) ; c = getch (){ */
+/* 	save_rune (c, &buffer, &ix) */
+/*     } */
+/*     put_back (c) */
+/*     p := intern (buffer) */
+/*     return p */
+/* } */
+
+
+
+		
+//// testing
+
+/* main :: proc () { */
+/*     // Certain built-in types can be iterated over */
+/*     some_string := "Hello, 世界" */
+/*     fmt.println (len (some_string)) */
+/*     i := 0 */
+/*     for character in some_string { // Strings are assumed to be UTF-8 */
+/* 	r := uni.rune_at (some_string, i) */
+/* 	fmt.println(typeid_of (type_of (character)), character, typeid_of (type_of (r)), r) */
+/* 	i = i +1 */
+/*     } */
+/*     //open () */
+/*     //fmt.println (getch ()) */
+}
+
+main :: proc () {
+    some_string := "Hello, 世界"
+    fmt.println (len (some_string))
+    i := 0
+    for character in some_string {
+	r := uni.rune_at (some_string, i)
+	fmt.println(typeid_of (type_of (character)), character, typeid_of (type_of (r)), r)
+	i = i +1
+    }
+}
+

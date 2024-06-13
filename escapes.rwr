@@ -1,0 +1,17 @@
+Escapes {
+  text [c+] = ‛«c»’
+  char_string [ldq cs* rdq] = ‛«ldq»«_.encodews (cs)»«rdq»’
+  char_comment [kcomment cs* nl] = ‛⌈«_.encodews (cs)»⌉\n’
+  char_word [lb cs+ rb] = ‛«lb»«encodeURIComponent (cs)»«rb»’
+  char_any [c] = ‛«c»’
+
+  stringchar [c] = ‛«c»’
+
+  wordchar_rec [lb cs+ rb] = ‛«lb»«cs»«rb»’
+  wordchar_bottom [c] = ‛«c»’
+
+  quoteddq [bsl dq] = ‛«dq»’
+  sq [c] = ‛«c»’
+  dq [c] = ‛«c»’
+  nl [c] = ‛«c»’
+}

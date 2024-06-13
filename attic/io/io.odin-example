@@ -1,0 +1,17 @@
+package simplelisp
+
+import "core:fmt"
+import "core:strings"
+import uni "core:unicode/utf8"
+
+main :: proc () {
+    some_string := "Hello, 世界"
+    fmt.println (len (some_string))
+    i := 0
+    for character in some_string {
+	r := uni.rune_at_pos (some_string, i)
+	fmt.println(typeid_of (type_of (character)), character, typeid_of (type_of (r)), r)
+	i = i +1
+    }
+}
+
