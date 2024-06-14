@@ -1,8 +1,8 @@
-const Null = 512
-global M = array [Null * 2]
-global consSP // SP means "stack pointer"
-global ax, dx, depth, panic, fail
-global kEq, kCar, kCdr, kCond, kAtom, kCons, kQuote, kDefine
+defconst Null = 512
+defglobal M = array [Null * 2]
+defglobal consSP // SP means "stack pointer"
+defglobal ax, dx, depth, panic, fail
+defglobal kEq, kCar, kCdr, kCond, kAtom, kCons, kQuote, kDefine
 
 def Get(i) {
   M[Null + i]

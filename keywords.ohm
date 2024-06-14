@@ -4,8 +4,8 @@ keywords {
 
   keyword = 
     | "def" space+ -- def
-    | "const" space+ -- const
-    | "global" space+ -- global
+    | "defconst" space+ -- defconst
+    | "defglobal" space+ -- defglobal
 
   comment = "⌈" notcomment* "⌉"
   notcomment = ~"⌈" ~"⌉" any

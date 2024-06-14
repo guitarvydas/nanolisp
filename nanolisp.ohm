@@ -1,5 +1,10 @@
 nanolisp {
   Main = TopLevel+
   TopLevel =
+    | kw<"const"> id "=" basic
+    | kw<"defglobal"> 
     | any -- any
+  basic =
+    | number
+  number = digit+
 }

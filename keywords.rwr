@@ -2,8 +2,8 @@ keywords {
   input [items+] = ‛«items»’
   item [x] = ‛«x»’
   keyword_def [_def ws+] = ‛❲def❳’
-  keyword_const [_const ws+] = ‛❲const❳’
-  keyword_global [_global ws+] = ‛❲global❳’
+  keyword_defconst [_defconst ws+] = ‛❲defconst❳’
+  keyword_defglobal [_defglobal ws+] = ‛❲defglobal❳’
   comment [_lb cs* _rb] = ‛«_lb»«cs»«_rb»’
   notcomment [c] = ‛«c»’
   terminator [c] = ‛«c»’
