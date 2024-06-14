@@ -2,7 +2,7 @@ Escapes {
   text = char+
   char =
     | dq (~dq stringchar)* dq -- string
-    | ";" (~nl stringchar)* nl -- comment
+    | "//" (~nl stringchar)* nl -- comment
     | "❲" wordchar+ "❳" -- word
     | ~"❲" ~"❳" any -- any
 

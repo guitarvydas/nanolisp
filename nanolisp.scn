@@ -1,26 +1,26 @@
 const Null = 512
-global M[Null * 2]
+global M = array [Null * 2]
 global consSP // SP means "stack pointer"
-global ax, dx, depth, panic, fail;
-global kEq, kCar, kCdr, kCond, kAtom, kCons, kQuote, kDefine;
+global ax, dx, depth, panic, fail
+global kEq, kCar, kCdr, kCond, kAtom, kCons, kQuote, kDefine
 
-function Get(i) {
+def Get(i) {
   M[Null + i]
 }
 
-function Set(i, x) {
+def Set(i, x) {
   M[Null + i] = x
 }
 
-function Car(x) {
+def Car(x) {
   Get(x)
 }
 
-function Cdr(x) {
+def Cdr(x) {
   Get(x + 1)
 }
 
-function Cons(car, cdr) {
+def Cons(car, cdr) {
   Set(--cx, cdr)
   Set(--cx, car)
   cx

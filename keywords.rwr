@@ -1,7 +1,9 @@
 keywords {
   input [items+] = ‛«items»’
   item [x] = ‛«x»’
-  keyword_for [_for ws+] = ‛❲for❳’
+  keyword_def [_def ws+] = ‛❲def❳’
+  keyword_const [_const ws+] = ‛❲const❳’
+  keyword_global [_global ws+] = ‛❲global❳’
   comment [_lb cs* _rb] = ‛«_lb»«cs»«_rb»’
   notcomment [c] = ‛«c»’
   terminator [c] = ‛«c»’

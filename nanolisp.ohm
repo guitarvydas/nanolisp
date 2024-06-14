@@ -1,3 +1,5 @@
 nanolisp {
-  main = any+
+  Main = TopLevel+
+  TopLevel =
+    | any -- any
 }

@@ -3,7 +3,9 @@ keywords {
   item = comment | keyword | any
 
   keyword = 
-    | "for" space+ -- for
+    | "def" space+ -- def
+    | "const" space+ -- const
+    | "global" space+ -- global
 
   comment = "⌈" notcomment* "⌉"
   notcomment = ~"⌈" ~"⌉" any

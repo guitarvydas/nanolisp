@@ -1,3 +1,4 @@
 nanolisp {
-  main [any+] = ‛«any»’
+  Main [TopLevel+] = ‛«TopLevel»’
+  TopLevel_any [any] = ‛«any»’
 }
