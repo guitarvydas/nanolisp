@@ -4,26 +4,4 @@ defglobal consSP // SP means "stack pointer"
 defglobal ax, dx, depth, panic, fail
 defglobal kEq, kCar, kCdr, kCond, kAtom, kCons, kQuote, kDefine
 
-def Get(i) {
-  M[Null + i]
-}
-
-def Set(i, x) {
-  M[Null + i] = x
-}
-
-def Car(x) {
-  Get(x)
-}
-
-def Cdr(x) {
-  Get(x + 1)
-}
-
-def Cons(car, cdr) {
-  Set(--cx, cdr)
-  Set(--cx, car)
-  cx
-}
-
 

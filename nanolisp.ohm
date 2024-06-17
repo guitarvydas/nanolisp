@@ -1,9 +1,11 @@
 nanolisp {
   Main = TopLevel+
   TopLevel =
-    | kw<"const"> id "=" basic
-    | kw<"defglobal"> 
+    | kw<"defconst"> id "=" basic -- defconst
+    | kw<"defglobal"> DefineGlobalID_rec -- defglobal
     | any -- any
+
+  DefineGlobalID_rec = id GlobalInitialier? ("," DefineGlobalID_rec)?
   basic =
     | number
   number = digit+
