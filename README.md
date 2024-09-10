@@ -9,4 +9,5 @@ main points:
 - rebuilding from scratch
 
 # TODO:
+continue, based on mostly-written attic/smalllisp.odin in https://github.com/guitarvydas/nanolisp
 
